@@ -3,19 +3,21 @@ package pack1;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Level extends JPanel{
 	
-	public final int widthOfLevel = 1000;
-	public final int heightOfLevel = 600;
-	private int amountOfStars = 100;
+	public final int widthOfLevel = 1400;
+	public final int heightOfLevel = 800;
+	private int amountOfStars = 200;
 	private final int initPlayerX = 2;
 	private final int initPlayerY = 2;
-	private final int widthOfPlayer = 20;
-	private final int heightOfPlayer = 20;
+	private final int widthOfPlayer = 25;
+	private final int heightOfPlayer = 25;
 	
 	private JFrame window = new JFrame();
 	private Star stars[] = new Star[amountOfStars];
@@ -49,10 +51,12 @@ public class Level extends JPanel{
 	}
 	public Level()
 	{
+
 		initStars();
 		window.add(this);
 		
 		window.setSize(widthOfLevel, heightOfLevel);
+		window.setResizable(false);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setVisible(true);
 	}
@@ -63,10 +67,10 @@ public class Level extends JPanel{
 		super.paint(g);
 		this.setBackground(Color.BLACK);
 		drawStar(g);
-		superMario.drawFacingLeft(g);
-		
 		
 		this.repaint();
 	}
+
+
 
 }

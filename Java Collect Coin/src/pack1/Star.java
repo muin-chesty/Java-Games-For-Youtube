@@ -7,8 +7,8 @@ public class Star {
 	private int xPos;
 	private int yPos;
 	
-	private final int width = 3;
-	private final int height = 3;
+	private final int width = 5;
+	private final int height = 5;
 	
 	@Override
 	public String toString() {

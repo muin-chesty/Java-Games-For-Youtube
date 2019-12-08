@@ -9,10 +9,17 @@ public class Player {
 	private int width;
 	private int height;
 	private int speed;
+	private int offset = 5;
+	private int widthOfEye = 3, heightOfEye = 3;
 	
 	private Color color;
 	
 	private Level currentLevel;
+	
+	public int getSpeed()
+	{
+		return speed;
+	}
 	
 	public Player(int xPos, int yPos, int width, int height, Color color, Level currentLevel)
 	{
@@ -73,11 +80,13 @@ public class Player {
 	
 	public void drawFacingRight(Graphics g)
 	{
-		int offset = 5;
+
 		g.setColor(color);
 		g.fillOval(xPos, yPos, width, height);
 		g.setColor(Color.YELLOW);
-		g.fillRect(xPos + width - offset, yPos + offset, 3, 3);
+		g.fillRect(xPos + width - offset, yPos + offset, widthOfEye, heightOfEye);
+		g.setColor(Color.BLACK);
+		g.fillRect(xPos + widthOfEye * 6, yPos - (8 * (heightOfEye - offset)), widthOfEye + 5, heightOfEye - 1);
 	}
 	public void drawFacingLeft(Graphics g)
 	{
@@ -85,6 +94,8 @@ public class Player {
 		g.setColor(color);
 		g.fillOval(xPos, yPos, width, height);
 		g.setColor(Color.YELLOW);
-		g.fillRect(xPos + offset, yPos + offset, 3, 3);
+		g.fillRect(xPos + offset, yPos + offset, widthOfEye, heightOfEye);
+		g.setColor(Color.BLACK);
+		g.fillRect(xPos + widthOfEye - 1 , yPos - (8 * (heightOfEye - offset)), widthOfEye + 5, heightOfEye - 1);
 	}
 }
