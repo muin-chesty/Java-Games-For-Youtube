@@ -9,12 +9,19 @@ import javax.swing.JPanel;
 
 public class Level extends JPanel{
 	
-	private final int widthOfLevel = 1000;
-	private final int heightOfLevel = 600;
+	public final int widthOfLevel = 1000;
+	public final int heightOfLevel = 600;
 	private int amountOfStars = 100;
+	private final int initPlayerX = 2;
+	private final int initPlayerY = 2;
+	private final int widthOfPlayer = 20;
+	private final int heightOfPlayer = 20;
 	
 	private JFrame window = new JFrame();
 	private Star stars[] = new Star[amountOfStars];
+	
+	private Player superMario = new Player(initPlayerX, initPlayerY, widthOfPlayer, heightOfPlayer, Color.GREEN, this);
+	
 	
 	private int randomX()
 	{
@@ -56,6 +63,8 @@ public class Level extends JPanel{
 		super.paint(g);
 		this.setBackground(Color.BLACK);
 		drawStar(g);
+		superMario.drawFacingLeft(g);
+		
 		
 		this.repaint();
 	}
